@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooting Game</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #startScreen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+        #startButton {
+            padding: 20px 40px;
+            font-size: 24px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #startButton:hover {
+            background-color: #45a049;
+        }
+        #gameScreen {
+            display: none;
+        }
+        #gameCanvas {
+            background-color: #111;
+        }
+        #levelUpScreen {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+        .stat-button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #expBar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 200px;
+            height: 20px;
+            background-color: #333;
+            border-radius: 10px;
+        }
+        #expFill {
+            width: 0%;
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+        #level {
+            position: absolute;
+            top: 35px;
+            left: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="startScreen">
+        <button id="startButton">시작하기</button>
+    </div>
+    
+    <div id="gameScreen">
+        <canvas id="gameCanvas"></canvas>
+        <div id="expBar">
+            <div id="expFill"></div>
+        </div>
+        <div id="level">Level: 1</div>
+        <div id="score" style="position: absolute; top: 10px; right: 10px; color: white;">Score: 0</div>
+    </div>
+
+    <div id="levelUpScreen">
+        <h2>Level Up!</h2>
+        <button class="stat-button" data-stat="attackSpeed">공격 속도 증가</button>
+        <button class="stat-button" data-stat="attackPower">공격력 증가</button>
+        <button class="stat-button" data-stat="moveSpeed">이동 속도 증가</button>
+        <button class="stat-button" data-stat="bulletCount" style="display: none;">총알 개수 증가</button>
+        <button class="stat-button" data-stat="bulletSize" style="display: none;">총알 크기 증가</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
